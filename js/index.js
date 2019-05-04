@@ -27,7 +27,10 @@ document.body.addEventListener('dblclick', event => {
 });
 
 signUpBtn = document.querySelectorAll('.btn')
-signUpBtn[0].addEventListener('mouseover', event => {
+signUpBtn[0].addEventListener('mousemove', event => {
+  signUpBtn[0].style.position = "absolute"
+  signUpBtn[0].style.top = `${event.clientY - 20}px`
+  signUpBtn[0].style.left = `${event.clientX - 100}px`
   var x = event.clientX;
   var y = event.clientY;
   var coor = "X coords: " + x + ", Y coords: " + y;
@@ -54,12 +57,19 @@ navLinks = document.querySelectorAll('.nav-link');
 navLinks[0].addEventListener('click', event => {
   event.preventDefault();
 })
-// navLinks.forEach( i => {
-// navLinks[i].addEventListener('click', event => {
-//   navLinks[i].preventDefault()
-// })
-// });
+navLinks[1].addEventListener('click', event => {
+  event.preventDefault();
+})
+navLinks[2].addEventListener('click', event => {
+  event.preventDefault();
+})
+navLinks[3].addEventListener('click', event => {
+  event.preventDefault();
+})
 
-// navLinks.forEach( i => {
-//   navLinks[i].preventDefault()
-// })
+
+headerBar = document.querySelector('.main-navigation');
+headerBar.addEventListener('mouseover', event => {
+  headerBar.style['background-color'] = `rgb(${event.clientX},${event.clientY}, 200)`;
+  event.stopPropagation();
+})
